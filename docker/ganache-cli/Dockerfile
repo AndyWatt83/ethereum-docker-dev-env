@@ -1,6 +1,3 @@
 FROM trufflesuite/ganache-cli:latest
-
-COPY ganache-startup-script.sh /app/
-
 RUN /bin/sh -c "apk add --no-cache bash"
-ENTRYPOINT bash ganache-startup-script.sh
+ENTRYPOINT node /app/ganache-core.docker.cli.js --quiet --networkId 57771 --verbose --host 0.0.0.0
